@@ -1,6 +1,20 @@
 #include<bits/stdc++.h>
 using namespace std;
-
+long long maxSubarraySum(int arr[],int n){
+    long long int current=arr[0],maxsum=arr[0];
+    for(int i=1;i<n;i++){
+        if(arr[i]<current+arr[i]){
+           current+=arr[i];
+        }
+        else{
+            current = arr[i];
+        }
+        if(maxsum<current){
+            maxsum=current;
+        }
+    }
+    return maxsum;
+}
 
  // } Driver Code Ends
 class Solution{
